@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
   ArrowRight, Braces, Check, ChevronDown, Clipboard, Code2, Command, Copy, Database,
-  ExternalLink, Globe2, Layers3, Linkedin, Mail, MapPin, Menu, Moon, Server,
+  ExternalLink, Github, Globe2, Layers3, Linkedin, Mail, MapPin, Menu, Moon, Server,
   Sparkles, Sun, X, Zap,
 } from "lucide-react";
 import { portfolioConfig, stats } from "@/data/profile";
@@ -138,7 +138,7 @@ export function Portfolio() {
           <div className="role-line"><span>Currently shaping experiences as</span><AnimatePresence mode="wait"><motion.strong key={role} initial={{y:10,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-10,opacity:0}}>{roles[role]}</motion.strong></AnimatePresence></div>
           <p className="hero-lead">I build scalable applications with polished interfaces, strong frontend architecture, reliable APIs, and modern cloud technologies.</p>
           <div className="hero-actions"><button className="button" onClick={()=>go("projects")}>View my work <ArrowRight/></button><a className="button ghost" href={portfolioConfig.resumeUrl} target="_blank" rel="noreferrer">Download résumé</a></div>
-          <div className="hero-meta"><span><MapPin/> {portfolioConfig.location}</span><a href={portfolioConfig.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin/></a></div>
+          <div className="hero-meta"><span><MapPin/> {portfolioConfig.location}</span><a href={portfolioConfig.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin/></a><a href={portfolioConfig.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github/></a></div>
         </div>
         <motion.div className="architecture" initial={{opacity:0,x:30}} animate={{opacity:1,x:0}} transition={{delay:.25}}>
           <div className="window-bar"><span><i/><i/><i/></span><em>architecture.live</em><span className="live"><i/> online</span></div>
