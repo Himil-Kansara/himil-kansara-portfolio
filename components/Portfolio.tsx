@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
   ArrowRight, Braces, Check, ChevronDown, Clipboard, Code2, Command, Copy, Database,
-  ExternalLink, Github, Globe2, Layers3, Linkedin, Mail, MapPin, Menu, Moon, Server,
+  ExternalLink, Globe2, Layers3, Linkedin, Mail, MapPin, Menu, Moon, Server,
   Sparkles, Sun, X, Zap,
 } from "lucide-react";
 import { portfolioConfig, stats } from "@/data/profile";
@@ -138,7 +138,7 @@ export function Portfolio() {
           <div className="role-line"><span>Currently shaping experiences as</span><AnimatePresence mode="wait"><motion.strong key={role} initial={{y:10,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-10,opacity:0}}>{roles[role]}</motion.strong></AnimatePresence></div>
           <p className="hero-lead">I build scalable applications with polished interfaces, strong frontend architecture, reliable APIs, and modern cloud technologies.</p>
           <div className="hero-actions"><button className="button" onClick={()=>go("projects")}>View my work <ArrowRight/></button><a className="button ghost" href={portfolioConfig.resumeUrl} target="_blank" rel="noreferrer">Download résumé</a></div>
-          <div className="hero-meta"><span><MapPin/> {portfolioConfig.location}</span><a href={portfolioConfig.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin/></a><a href={portfolioConfig.github} aria-label="GitHub link placeholder"><Github/></a></div>
+          <div className="hero-meta"><span><MapPin/> {portfolioConfig.location}</span><a href={portfolioConfig.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin/></a></div>
         </div>
         <motion.div className="architecture" initial={{opacity:0,x:30}} animate={{opacity:1,x:0}} transition={{delay:.25}}>
           <div className="window-bar"><span><i/><i/><i/></span><em>architecture.live</em><span className="live"><i/> online</span></div>
@@ -161,7 +161,7 @@ export function Portfolio() {
           <Reveal className="about-copy"><p>I am a Senior Full-Stack Developer who enjoys transforming complex requirements into intuitive, responsive and scalable digital products. My core strength lies in building modern frontend applications using Angular, React, JavaScript and TypeScript, while also developing reliable backend services using .NET Core, C#, Node.js and SQL.</p><p>I work across the complete software development lifecycle—from requirements and architecture through deployment, optimisation and production support—with a focus on maintainable solutions, reusable components, clean APIs and polished user experiences.</p>
             <div className="stats">{stats.map(s=><div key={s.label} className={s.placeholder?"placeholder-stat":""}><b>{s.value}{s.suffix}</b><span>{s.label}</span></div>)}</div>
           </Reveal>
-          <Reveal className="profile-card"><div className="profile-head"><span>HK</span><div><b>{portfolioConfig.name}</b><small>{portfolioConfig.title}</small></div></div>{[["Role",portfolioConfig.currentDesignation],["Company",portfolioConfig.currentCompany],["Location",portfolioConfig.location],["Experience",`${portfolioConfig.yearsOfExperience} years`],["Current focus","Frontend architecture & scalable full-stack products"],["Availability",portfolioConfig.availability]].map(([k,v])=><div className="profile-row" key={k}><span>{k}</span><b>{v}</b></div>)}</Reveal>
+          <Reveal className="profile-card"><div className="profile-head"><span>HK</span><div><b>{portfolioConfig.name}</b><small>{portfolioConfig.title}</small></div></div>{[["Role",portfolioConfig.currentDesignation],["Company",portfolioConfig.currentCompany],["Location",portfolioConfig.location],["Experience",`${portfolioConfig.yearsOfExperience} years`],["Current focus","Full-stack development & frontend architecture"],["Availability",portfolioConfig.availability]].map(([k,v])=><div className="profile-row" key={k}><span>{k}</span><b>{v}</b></div>)}</Reveal>
         </div>
       </section>
 

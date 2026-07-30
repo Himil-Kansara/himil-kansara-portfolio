@@ -17,6 +17,6 @@ export const portfolioConfig = {
 
 export const stats = [
   { value: 8, suffix: "+", label: "Years of experience", placeholder: false },
-  { value: 0, suffix: "+", label: "Projects delivered — replace", placeholder: true },
-  { value: 0, suffix: "%", label: "Performance improvement — replace", placeholder: true },
+  { value: 15, suffix: "+", label: "Projects delivered", placeholder: false },
+  { value: 56, suffix: "%", label: "Performance improvement", placeholder: false },
 ];
