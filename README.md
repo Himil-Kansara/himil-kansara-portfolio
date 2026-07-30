@@ -86,4 +86,4 @@ The form submits to `app/api/contact/route.ts`. Create a Resend API key, verify 
 - Use Node.js 22.13+ for engine compatibility.
 - If delivery fails, verify all contact variables and the Resend sender/domain.
 - Update `NEXT_PUBLIC_SITE_URL` if canonical metadata is wrong.
-- GitHub is intentionally a placeholder until a real profile URL is provided.
+- Update the GitHub profile URL in `data/profile.ts` if the account changes.

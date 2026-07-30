@@ -10,7 +10,7 @@ export default function Home() {
     email: portfolioConfig.email,
     telephone: portfolioConfig.phone,
     address: { "@type": "PostalAddress", addressLocality: "Ahmedabad", addressRegion: "Gujarat", addressCountry: "IN" },
-    sameAs: [portfolioConfig.linkedin],
+    sameAs: [portfolioConfig.linkedin, portfolioConfig.github],
     knowsAbout: ["Angular", "React", "TypeScript", ".NET Core", "Azure", "REST APIs"],
   };
 

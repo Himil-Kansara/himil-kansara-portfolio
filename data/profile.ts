@@ -6,7 +6,7 @@ export const portfolioConfig = {
   email: "himilkansara007@gmail.com",
   phone: "+917567483648",
   linkedin: "https://www.linkedin.com/in/himil-kansara-aab414177",
-  github: "#replace-github-url",
+  github: "https://github.com/Himil-Kansara",
   resumeUrl: "https://drive.google.com/file/d/1RXhgemsK3rYrG5xIDxGcOB-PLmwUlQI0/view?usp=drive_link",
   yearsOfExperience: "8+",
   currentCompany: "Veradigm India.",
