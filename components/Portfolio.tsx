@@ -61,7 +61,7 @@ function ProjectModal({ project, close }: { project: Project; close: () => void 
   return <motion.div className="modal-backdrop" onMouseDown={(e) => e.target === e.currentTarget && close()} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
     <motion.article role="dialog" aria-modal="true" aria-labelledby="project-title" className="modal" initial={{scale:.96,y:20}} animate={{scale:1,y:0}}>
       <button ref={ref} className="icon-button modal-close" onClick={close} aria-label="Close project details"><X /></button>
-      <div className="browser-preview"><div className="browser-bar"><i/><i/><i/><span>{project.slug}.portfolio</span></div><div className="preview-grid"><Layers3/><span>Editable case study</span></div></div>
+      <div className="browser-preview"><div className="browser-bar"><i/><i/><i/><span>{project.slug}.portfolio</span></div><div className="preview-grid"><Layers3/><span>{project.image ? "Project preview" : "Project image not provided"}</span></div></div>
       <p className="eyebrow">{project.category} · {project.placeholder ? "Sample content" : "Case study"}</p><h2 id="project-title">{project.title}</h2><p className="lead">{project.description}</p>
       <div className="detail-grid">
         <div><h3>Problem</h3><p>{project.problem}</p></div><div><h3>My contribution</h3><p>{project.contribution}</p></div>
@@ -69,6 +69,7 @@ function ProjectModal({ project, close }: { project: Project; close: () => void 
       </div>
       <h3>Key features</h3><ul className="feature-list">{project.features.map(f=><li key={f}><Check/> {f}</li>)}</ul>
       <div className="tags">{project.technologies.map(t=><span key={t}>{t}</span>)}</div>
+      {(project.liveUrl || project.githubUrl) ? <div className="project-actions">{project.liveUrl&&<a className="button" href={project.liveUrl} target="_blank" rel="noreferrer">Live demo <ExternalLink/></a>}{project.githubUrl&&<a className="button ghost" href={project.githubUrl} target="_blank" rel="noreferrer">Source code <Github/></a>}</div> : <p className="project-links-note">Live demo and source-code links have not been provided.</p>}
     </motion.article>
   </motion.div>;
 }
@@ -174,9 +175,9 @@ export function Portfolio() {
         <motion.div layout className="skills-grid">{filteredSkills.map(s=><motion.article layout key={`${s.category}-${s.name}`} className="skill-card" title={s.description}><span className={cn("level",s.level.split(" ")[0].toLowerCase())}>{s.level}</span><h3>{s.name}</h3><p>{s.description}</p></motion.article>)}</motion.div>
       </section>
 
-      <section id="projects" className="section container"><Reveal><SectionTitle eyebrow="04 / Selected work" title="Products, not just projects." intro="A flexible case-study system ready for your verified work. Every card below is explicitly marked as editable sample content." /></Reveal>
+      <section id="projects" className="section container"><Reveal><SectionTitle eyebrow="04 / Selected work" title="Products, not just projects." intro="Verified case studies are presented alongside clearly marked samples that are ready for your next project details." /></Reveal>
         <div className="filters" role="group" aria-label="Filter projects">{projectCategories.map(c=><button key={c} className={projectFilter===c?"selected":""} onClick={()=>setProjectFilter(c)}>{c}</button>)}</div>
-        <div className="projects-grid">{filteredProjects.map((p,i)=><Reveal key={p.slug} className={cn("project-card",i===0&&projectFilter==="All"&&"project-featured")}><button onClick={()=>setProject(p)}><div className="project-visual"><div className="browser-bar"><i/><i/><i/><span>{p.slug}.sample</span></div><div className="project-mock"><div className="mock-sidebar"/><div className="mock-content"><span/><b/><div><i/><i/><i/></div></div></div></div><div className="project-content"><div><span className="sample-badge">Editable sample</span><p>{p.category}</p></div><h3>{p.title}</h3><p>{p.description}</p><div className="tags">{p.technologies.map(t=><span key={t}>{t}</span>)}</div><span className="project-link">Explore case study <ArrowRight/></span></div></button></Reveal>)}</div>
+        <div className="projects-grid">{filteredProjects.map((p,i)=><Reveal key={p.slug} className={cn("project-card",i===0&&projectFilter==="All"&&"project-featured")}><button onClick={()=>setProject(p)}><div className="project-visual"><div className="browser-bar"><i/><i/><i/><span>{p.slug}.{p.placeholder?"sample":"platform"}</span></div><div className="project-mock"><div className="mock-sidebar"/><div className="mock-content"><span/><b/><div><i/><i/><i/></div></div></div></div><div className="project-content"><div><span className={cn("sample-badge",!p.placeholder&&"verified-badge")}>{p.placeholder?"Editable sample":"Featured case study"}</span><p>{p.category}</p></div><h3>{p.title}</h3><p>{p.description}</p><div className="tags">{p.technologies.map(t=><span key={t}>{t}</span>)}</div><span className="project-link">Explore case study <ArrowRight/></span></div></button></Reveal>)}</div>
       </section>
 
       <section className="section container"><Reveal><SectionTitle eyebrow="05 / Process" title="How I move from idea to impact." intro="A pragmatic delivery loop that keeps product needs, code quality and measurable outcomes aligned." /></Reveal>
