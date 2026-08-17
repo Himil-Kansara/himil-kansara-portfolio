@@ -1,24 +1,5 @@
 import type { Project } from "@/types/portfolio";
 
-const samples = [
-  ["enterprise-platform", "Enterprise Angular & .NET Application", "Angular", "A scalable enterprise workflow platform."],
-  ["government-api-marketplace", "Government API Marketplace", ".NET", "A discoverable and governed API catalogue."],
-  ["business-website", "Responsive Business Website", "UI/UX", "A fast, accessible company marketing experience."],
-] as const;
-
-const sampleProjects: Project[] = samples.map(([slug, title, category, description], index) => ({
-  slug,
-  title: `[SAMPLE] ${title}`,
-  description: `${description} Editable sample content — replace with verified project details.`,
-  problem: "[REPLACE] Describe the real business problem.",
-  contribution: "[REPLACE] Describe your verified contribution.",
-  features: ["Responsive user journeys", "Reusable interface components", "Reliable API integration"],
-  technologies: category === "Angular" ? ["Angular", "TypeScript", ".NET Core"] : ["TypeScript", ".NET Core", "Azure"],
-  architecture: "[REPLACE] Add the real architecture and technical decisions.",
-  challenges: ["[REPLACE] Add a real technical challenge and outcome."],
-  githubUrl: "", liveUrl: "", image: "", category, featured: index < 3, placeholder: true,
-}));
-
 export const projects: Project[] = [
   {
     slug: "verixo",
@@ -156,5 +137,4 @@ export const projects: Project[] = [
     category: "SaaS",
     featured: true,
   },
-  ...sampleProjects,
 ];

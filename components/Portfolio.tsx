@@ -103,7 +103,7 @@ export function Portfolio() {
   },[theme]);
 
   const skillCategories = ["All",...new Set(skills.map(s=>s.category))];
-  const projectCategories = ["All","Angular","React",".NET","Full Stack","SaaS","UI/UX"];
+  const projectCategories = ["All",...new Set(projects.map(project=>project.category))];
   const filteredSkills = useMemo(()=>skillFilter==="All"?skills:skills.filter(s=>s.category===skillFilter),[skillFilter]);
   const filteredProjects = useMemo(()=>projectFilter==="All"?projects:projects.filter(p=>p.category===projectFilter),[projectFilter]);
   const go=(id:string)=>{document.getElementById(id.toLowerCase())?.scrollIntoView({behavior:"smooth"});setMobile(false);setPalette(false)};
@@ -175,7 +175,7 @@ export function Portfolio() {
         <motion.div layout className="skills-grid">{filteredSkills.map(s=><motion.article layout key={`${s.category}-${s.name}`} className="skill-card" title={s.description}><span className={cn("level",s.level.split(" ")[0].toLowerCase())}>{s.level}</span><h3>{s.name}</h3><p>{s.description}</p></motion.article>)}</motion.div>
       </section>
 
-      <section id="projects" className="section container"><Reveal><SectionTitle eyebrow="04 / Selected work" title="Products, not just projects." intro="Verified case studies are presented alongside clearly marked samples that are ready for your next project details." /></Reveal>
+      <section id="projects" className="section container"><Reveal><SectionTitle eyebrow="04 / Selected work" title="Products, not just projects." intro="Detailed case studies covering scalable SaaS products, thoughtful frontend architecture, reliable APIs, and polished user experiences." /></Reveal>
         <div className="filters" role="group" aria-label="Filter projects">{projectCategories.map(c=><button key={c} className={projectFilter===c?"selected":""} onClick={()=>setProjectFilter(c)}>{c}</button>)}</div>
         <div className="projects-grid">{filteredProjects.map((p,i)=><Reveal key={p.slug} className={cn("project-card",i===0&&projectFilter==="All"&&"project-featured")}><button onClick={()=>setProject(p)}><div className="project-visual"><div className="browser-bar"><i/><i/><i/><span>{p.slug}.{p.placeholder?"sample":"platform"}</span></div>{p.image?<img className="project-card-image" src={p.image} alt={`${p.title} application homepage`} loading="lazy"/>:<div className="project-mock"><div className="mock-sidebar"/><div className="mock-content"><span/><b/><div><i/><i/><i/></div></div></div>}</div><div className="project-content"><div><span className={cn("sample-badge",!p.placeholder&&"verified-badge")}>{p.placeholder?"Editable sample":"Featured case study"}</span><p>{p.category}</p></div><h3>{p.title}</h3><p>{p.description}</p><div className="tags">{p.technologies.map(t=><span key={t}>{t}</span>)}</div><span className="project-link">Explore case study <ArrowRight/></span></div></button></Reveal>)}</div>
       </section>
