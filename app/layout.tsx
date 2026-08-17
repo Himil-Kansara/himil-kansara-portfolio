@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 const title = "Himil Kansara | Senior Full-Stack Developer";
 const description = "Portfolio of Himil Kansara, a Senior Full-Stack Developer specialising in Angular, React, TypeScript, .NET Core, APIs, Azure and modern responsive web applications.";
 
@@ -20,5 +17,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: "device-width", initialScale: 1, colorScheme: "dark light", themeColor: "#07090f" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" suppressHydrationWarning><body className={`${geist.variable} ${mono.variable}`}>{children}</body></html>;
+  return <html lang="en" suppressHydrationWarning><body>{children}</body></html>;
 }
